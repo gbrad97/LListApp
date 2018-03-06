@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class LList {
     private MyNode head;    // a list is a head node and any linked nodes
 
@@ -15,6 +17,22 @@ public class LList {
      */
     public LList(MyNode node) {
         head = node;
+    }
+
+    public LList() {
+        head = null;
+    }
+
+    public LList initialize(int numOfNodes, int maxValue) {
+        // generate head node
+        Random rand = new Random();
+        LList newList = new LList(new MyNode(rand.nextInt(maxValue + 1)));
+        for (int i = 1; i < numOfNodes; i++) {
+            int num = rand.nextInt(maxValue + 1);
+            //MyNode newNode = new MyNode(num);
+            newList.append(num);
+        }
+        return newList;
     }
 
     /**
@@ -54,6 +72,7 @@ public class LList {
             return count;
         }
     }
+
 
     public void prepend(int value) {
         MyNode newNode = new MyNode(value);

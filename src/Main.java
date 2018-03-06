@@ -26,6 +26,15 @@ public class Main {
         System.out.println("\nprepend 0 so 0-5-10-20-30?:\t" + llist);
 
 
+        LList newList1 = new LList();
+        newList1 = newList1.initialize(5, 50);
+        System.out.println("\nNew List made from random values (5): " + newList1);
+
+        LList newList2 = new LList();
+        newList2 = newList2.initialize(10, 100);
+        System.out.println("\nNew List of made from random values (10): " + newList2);
+
+
 
     }
 }
