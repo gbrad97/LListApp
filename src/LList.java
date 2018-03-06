@@ -100,12 +100,52 @@ public class LList {
                 if (count == position - 1) {
                     newNode.next = tempHead.next;
                     tempHead.next = newNode;
+                    break;
                 }
                 count++;
                 tempHead = tempHead.next;
             }
         }
 
+    }
+
+    /*
+
+    public void remove(int position) {
+        if (position > size() || position < 0) {
+            System.out.println("The index is out of bounds.");
+        }
+        else if (position == 0) {
+            head = head.next;
+        }
+        else {
+            int count = 0;
+            MyNode tempHead = head;
+            while(tempHead.next.next != null) {
+                if (count == position - 1) {
+
+                    tempHead.next = tempHead.next.next;
+                }
+                tempHead = tempHead.next;
+                count++;
+            }
+
+
+        }
+    }
+    */
+
+    public boolean search(int value) {
+        boolean isItInList = false;
+        MyNode tempHead = head;
+        while (tempHead != null) {
+            if (tempHead.value == value) {
+                isItInList = true;
+                break;
+            }
+            tempHead = tempHead.next;
+        }
+        return isItInList;
     }
 
     /**
