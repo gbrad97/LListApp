@@ -40,6 +40,20 @@ public class LList {
         return new LList(head.next);
     }
 
+    public int size() {
+        if (head == null) {
+            return 0;
+        }
+        else {
+            MyNode tempHead = head;
+            int count = 1;
+            while (tempHead.next != null) {
+                tempHead = tempHead.next;
+                count++;
+            }
+            return count;
+        }
+    }
     /**
      * pretty-print my linked list object
      * @return the linked list represented as a String
