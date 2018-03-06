@@ -24,12 +24,10 @@ public class LList {
     }
 
     public LList initialize(int numOfNodes, int maxValue) {
-        // generate head node
         Random rand = new Random();
         LList newList = new LList(new MyNode(rand.nextInt(maxValue + 1)));
         for (int i = 1; i < numOfNodes; i++) {
             int num = rand.nextInt(maxValue + 1);
-            //MyNode newNode = new MyNode(num);
             newList.append(num);
         }
         return newList;
@@ -81,6 +79,35 @@ public class LList {
         // set the head to be the newNode
         head = newNode;
     }
+
+
+    // assuming list is indexed starting with 0
+    public void insert(int value, int position) {
+        MyNode newNode = new MyNode(value);
+        if (position > size() || position < 0) {
+            System.out.println("The index is out of bounds.");
+        }
+        else if (position == 0 ) {
+            prepend(value);
+        }
+        else if (position == size()) {
+            append(value);
+        }
+        else {
+            int count = 0;
+            MyNode tempHead = head;
+            while(tempHead.next != null) {
+                if (count == position - 1) {
+                    newNode.next = tempHead.next;
+                    tempHead.next = newNode;
+                }
+                count++;
+                tempHead = tempHead.next;
+            }
+        }
+
+    }
+
     /**
      * pretty-print my linked list object
      * @return the linked list represented as a String
