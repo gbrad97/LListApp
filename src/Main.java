@@ -19,6 +19,13 @@ public class Main {
         System.out.println("\nSize of 10-20-30 (3):\t" + llist.size());
         System.out.println("what if remove head?:\t" + llist.next().size());
 
+        llist.prepend(5);
+        System.out.println("\nprepend 5 so 5-10-20-30?:\t" + llist);
+
+        llist.prepend(0);
+        System.out.println("\nprepend 0 so 0-5-10-20-30?:\t" + llist);
+
+
 
     }
 }
