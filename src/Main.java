@@ -16,7 +16,9 @@ public class Main {
         System.out.println("what if remove head?:\t" + llist.next());
 
 
-        System.out.println("Size of 10-20-30 (3): " + llist.size());
+        System.out.println("\nSize of 10-20-30 (3):\t" + llist.size());
         System.out.println("what if remove head?:\t" + llist.next().size());
+
+
     }
 }

@@ -54,15 +54,32 @@ public class LList {
             return count;
         }
     }
+
+    public void prepend(int value) {
+        MyNode newNode = new MyNode(value);
+        // set old head to equal the next of the newNode
+        newNode.next = head;
+        // set the head to be the newNode
+        head = newNode;
+    }
     /**
      * pretty-print my linked list object
      * @return the linked list represented as a String
      */
     @Override
     public String toString() {
-        if( head.next == null )
-            return Integer.toString(head.value);
-        else
-            return head.value + "-" + next().toString();
+        StringBuilder str = new StringBuilder();
+        str.append("(" + this.size() + ") ");
+        MyNode tempHead = head;
+        while (tempHead != null) {
+            if (tempHead.next == null) {
+                str.append(Integer.toString(tempHead.value));
+            }
+            else {
+                str.append(Integer.toString(tempHead.value) + "-");
+            }
+            tempHead = tempHead.next;
+        }
+        return str.toString();
     }
 }
