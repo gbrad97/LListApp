@@ -52,7 +52,8 @@ public class Main {
         llist.insert(2000, 2222);
         System.out.println("\ninsert 2000 at position 2222:\t" + llist);
 
-        /*
+
+
         llist.remove(0);
         System.out.println("\nremove the node at position 0 so the list changes from -5-0-3-5-10-20-30-40 " +
                 "to 0-3-5-10-20-30-40?:\t" + llist);
@@ -60,7 +61,12 @@ public class Main {
         llist.remove(llist.size());
         System.out.println("\nremove the node at position the list size so the list changes from 0-3-5-10-20-30-40 " +
                 "to 0-3-5-10-20-30?:\t" + llist);
-        */
+
+        llist.remove(2);
+        System.out.println("\nremove the node at position 2 so the list changes from 0-3-5-10-20-30-40 " +
+                "to 0-3-10-20-30?:\t" + llist);
+
+
 
         System.out.println("\nIs 10 located in the list (true)?: " + llist.search(10));
 

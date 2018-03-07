@@ -109,7 +109,8 @@ public class LList {
 
     }
 
-    /*
+
+
 
     public void remove(int position) {
         if (position > size() || position < 0) {
@@ -119,21 +120,29 @@ public class LList {
             head = head.next;
         }
         else {
-            int count = 0;
-            MyNode tempHead = head;
-            while(tempHead.next.next != null) {
-                if (count == position - 1) {
-
-                    tempHead.next = tempHead.next.next;
+            if (head != null) {
+                if (head.next != null) {
+                    int count = 0;
+                    MyNode tempHead = head;
+                    MyNode tempPointer = head.next;
+                    while (tempHead.next != null && tempPointer.next != null) {
+                        if (count == position - 1) {
+                            break;
+                        }
+                        tempHead = tempHead.next;
+                        tempPointer = tempPointer.next;
+                        count++;
+                    }
+                    MyNode nodeToBeDeleted = tempPointer;
+                    tempHead.next = nodeToBeDeleted.next;
                 }
-                tempHead = tempHead.next;
-                count++;
             }
 
 
         }
     }
-    */
+
+
 
     public boolean search(int value) {
         boolean isItInList = false;
