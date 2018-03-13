@@ -70,13 +70,13 @@ public class Main {
                 "to 0-3-10-20-30?:\t" + llist);
 
 
-        System.out.println("\nIs 10 located in the list (true)?: " + llist.search(10));
+        System.out.println("\nIs 10 located in the list (true)?: " + llist.search(llist.getHead(), 10));
 
-        System.out.println("\nIs 2500 located in the list (false)?: " + llist.search(2500));
+        System.out.println("\nIs 2500 located in the list (false)?: " + llist.search(llist.getHead(), 2500));
 
-        System.out.println("\nIs 20 located in the list (true)?: " + llist.search(20));
+        System.out.println("\nIs 20 located in the list (true)?: " + llist.search(llist.getHead(), 20));
 
-        System.out.println("\nIs 30 located in the list (true)?: " + llist.search(30));
+        System.out.println("\nIs 30 located in the list (true)?: " + llist.search(llist.getHead(), 30));
 
 
 

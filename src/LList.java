@@ -154,6 +154,7 @@ public class LList {
 
 
 
+    /*
     public boolean search(int value) {
         boolean isItInList = false;
         MyNode tempHead = head;
@@ -165,6 +166,17 @@ public class LList {
             tempHead = tempHead.next;
         }
         return isItInList;
+    }
+    */
+
+    public boolean search(MyNode head, int value) {
+        if (head == null) {
+            return false;
+        }
+        else if (head.value == value) {
+            return true;
+        }
+        return search(head.next, value);
     }
 
     /**
