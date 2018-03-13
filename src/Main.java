@@ -16,8 +16,8 @@ public class Main {
         System.out.println("what if remove head?:\t" + llist.next());
 
 
-        System.out.println("\nSize of 10-20-30 (3):\t" + llist.size());
-        System.out.println("what if remove head?:\t" + llist.next().size());
+        System.out.println("\nSize of 10-20-30 (3):\t" + llist.size(llist.getHead()));
+        System.out.println("what if remove head?:\t" + llist.next().size(llist.getHead()));
 
         llist.prepend(5);
         System.out.println("\nprepend 5 so 5-10-20-30?:\t" + llist);
@@ -40,10 +40,10 @@ public class Main {
         llist.insert(3, 2);
         System.out.println("\ninsert 3 at position 2 so -5-0-3-5-10-20-30?:\t" + llist);
 
-        llist.insert(40, llist.size());
+        llist.insert(40, llist.size(llist.getHead()));
         System.out.println("\ninsert 40 at the end of the list so -5-0-3-5-10-20-30-40?:\t" + llist);
 
-        llist.insert(50, llist.size() + 1);
+        llist.insert(50, llist.size(llist.getHead()) + 1);
         System.out.println("\ninsert 50 at position size + 1:\t" + llist);
 
         llist.insert(-25, -111);
@@ -53,19 +53,21 @@ public class Main {
         System.out.println("\ninsert 2000 at position 2222:\t" + llist);
 
 
-
         llist.remove(0);
         System.out.println("\nremove the node at position 0 so the list changes from -5-0-3-5-10-20-30-40 " +
                 "to 0-3-5-10-20-30-40?:\t" + llist);
 
-        llist.remove(llist.size());
-        System.out.println("\nremove the node at position the list size so the list changes from 0-3-5-10-20-30-40 " +
-                "to 0-3-5-10-20-30?:\t" + llist);
+        llist.remove(llist.size(llist.getHead()));
+        System.out.println("\nremove the node at position the list size so the list stays the same 0-3-5-10-20-30-40 " +
+                "to 0-3-5-10-20-30-40?:\t" + llist);
+
+        llist.remove(llist.size(llist.getHead()) - 1);
+        System.out.println("\nremove the node at position the list size so the list stays the same 0-3-5-10-20-30-40 " +
+                "to 0-3-5-10-20-30-40?:\t" + llist);
 
         llist.remove(2);
         System.out.println("\nremove the node at position 2 so the list changes from 0-3-5-10-20-30-40 " +
                 "to 0-3-10-20-30?:\t" + llist);
-
 
 
         System.out.println("\nIs 10 located in the list (true)?: " + llist.search(10));
@@ -75,13 +77,6 @@ public class Main {
         System.out.println("\nIs 20 located in the list (true)?: " + llist.search(20));
 
         System.out.println("\nIs 30 located in the list (true)?: " + llist.search(30));
-
-
-
-
-
-
-
 
 
 

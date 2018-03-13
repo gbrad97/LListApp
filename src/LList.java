@@ -23,6 +23,10 @@ public class LList {
         head = null;
     }
 
+    public MyNode getHead() {
+        return head;
+    }
+
     public LList initialize(int numOfNodes, int maxValue) {
         Random rand = new Random();
         LList newList = new LList(new MyNode(rand.nextInt(maxValue + 1)));
@@ -56,10 +60,12 @@ public class LList {
         return new LList(head.next);
     }
 
+    /*
     public int size() {
         if (head == null) {
             return 0;
         }
+
         else {
             MyNode tempHead = head;
             int count = 1;
@@ -69,6 +75,14 @@ public class LList {
             }
             return count;
         }
+    }
+    */
+
+    public int size(MyNode head) {
+        if (head == null) {
+            return 0;
+        }
+        return 1 + size(head.next);
     }
 
 
@@ -84,36 +98,34 @@ public class LList {
     // assuming list is indexed starting with 0
     public void insert(int value, int position) {
         MyNode newNode = new MyNode(value);
-        if (position > size() || position < 0) {
+        if (position > size(head) || position < 0) {
             System.out.println("The index is out of bounds.");
         }
         else if (position == 0 ) {
             prepend(value);
         }
-        else if (position == size()) {
+        else if (position == size(head)) {
             append(value);
         }
         else {
             int count = 0;
             MyNode tempHead = head;
-            while(tempHead.next != null) {
+            while (tempHead.next != null) {
                 if (count == position - 1) {
                     newNode.next = tempHead.next;
                     tempHead.next = newNode;
-                    break;
                 }
                 count++;
                 tempHead = tempHead.next;
             }
         }
-
     }
 
 
 
 
     public void remove(int position) {
-        if (position > size() || position < 0) {
+        if (position >= size(head) || position < 0) {
             System.out.println("The index is out of bounds.");
         }
         else if (position == 0) {
@@ -137,8 +149,6 @@ public class LList {
                     tempHead.next = nodeToBeDeleted.next;
                 }
             }
-
-
         }
     }
 
@@ -164,7 +174,7 @@ public class LList {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append("(" + this.size() + ") ");
+        str.append("(" + this.size(head) + ") ");
         MyNode tempHead = head;
         while (tempHead != null) {
             if (tempHead.next == null) {
